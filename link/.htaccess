@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteRule ^sitemap.xml/?$ sitemap.php
+
+
+RewriteEngine on
+RewriteRule ^tag/(.*)$ taglinks.php?id=$1 [L]
+RewriteRule ^page/(.*)$ page.php?pageId=$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^post/(.*)$ show.php?id=$1 [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ catlinks.php?id=$1 [QSA,L]
